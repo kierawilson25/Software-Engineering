@@ -1,4 +1,3 @@
 public class User {
-    int id;
-    
+    int id;  
 }
