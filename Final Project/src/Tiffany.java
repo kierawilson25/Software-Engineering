@@ -1,8 +1,15 @@
 public class Tiffany extends User {
-    int id = 4;
-    String name;
+    private AIRecommenderSystem recommenderSystem;
 
-    public void getAIGenerators(){
+    public Tiffany(AIRecommenderSystem recommenderSystem) {
+        this.recommenderSystem = recommenderSystem;
+    }
 
-    };
+    public void getAIGenerators() {
+        AIChatBots[] generators = recommenderSystem.getAIGenerators("Text Generation", 0);
+        // Get information about each AI generator
+        for (AIGenerator generator : generators) {
+            System.out.println("AI Generator: " + generator.getDescription());
+        }
+    }
 }

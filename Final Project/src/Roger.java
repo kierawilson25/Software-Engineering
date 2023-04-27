@@ -1,23 +1,21 @@
-public class Roger extends Concierge {
-    Concierge concierge;
-    DataClerk dataClerk;
-    
-    public AIChatbot[] searchForAIChatbot(String userPreferences){
-        AIChatbot aiChatbot = new AIChatbot();
-        AIChatbot aiChatbot2 = new AIChatbot();
-        AIChatbot[] aiChatbotArray = new AIChatbot[]{aiChatbot, aiChatbot2};
-        return aiChatbotArray;
+public class Roger {
+    private Concierge concierge;
+    private DataClerk dataClerk;
+
+    public Roger(Concierge concierge, DataClerk dataClerk) {
+        this.concierge = concierge;
+        this.dataClerk = dataClerk;
     }
 
-    public String getAIDescription(AIChatbot chatbot){
-        return "Chatbot";
-    }
-    
-    public AIGenerator[] getAIGenerators(String userRequirements, int budget){
-        AIGenerator aiGenerator = new AIGenerator();
-        AIGenerator aiGenerator2 = new AIGenerator();
-        AIGenerator[] aiGeneratorArray = new AIGenerator[]{aiGenerator, aiGenerator2};
-        return aiGeneratorArray;
+    public AIChatBots[] searchForAIChatbots(String userPreferences) {
+        return concierge.searchForAIChatbot(userPreferences);
     }
 
+    public String getAIDescription(AIChatbot chatbot) {
+        return concierge.getAIDescription(chatbot);
+    }
+
+    public AIGenerator[] getAIGenerators(String userRequirements, int budget) {
+        return dataClerk.searchAIGenerator(userRequirements);
+    }
 }

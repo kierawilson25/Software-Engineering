@@ -2,13 +2,21 @@ import java.util.ArrayList;
 
 public class AIChatbot {
 
-    static ArrayList<AIChatbot> chatbotList = new ArrayList<AIChatbot>();
+    private String name;
+    private String description;
+    private String link;
 
-    public AIChatbot(){
-        chatbotList.add(this);
+    public AIChatbot(String name, String description, String link) {
+        this.name = name;
+        this.description = description;
+        this.link = link;
     }
 
-    public static ArrayList<AIChatbot> getChatbotList(){
-        return chatbotList;
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLink() {
+        return link;
     }
 }
